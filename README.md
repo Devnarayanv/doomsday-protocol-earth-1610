@@ -78,3 +78,25 @@ python docs/make_features_pdf.py
 - Icons: [Font Awesome](https://fontawesome.com) (free)
 - Font: Inter (Google Fonts)
 "# airbnbclone" 
+
+# Earth-616 • Spotify • DOOMSDAY PROTOCOL
+
+**Campaign HQ site:** https://sites.google.com/view/earth616-spotify-hq
+
+## Roles today (Day 1)
+| Role | Name |
+|---|---|
+| Captain | |
+| Stark | |
+| Banner | |
+| Romanoff | |
+| Strange | |
+| Watcher | |
+
+## Integrity pact
+We will only claim evidence we can show. We will verify every AI claim.
+
+## Day log
+| Day | Stone | What we built | Evidence link |
+|---|---|---|---|
+| 1 | Space | Earth HQ site, touchpoint inventory | |
