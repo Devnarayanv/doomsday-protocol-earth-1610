@@ -81,7 +81,7 @@ python docs/make_features_pdf.py
 
 # Earth-616 • Spotify • DOOMSDAY PROTOCOL
 
-**Campaign HQ site:** https://sites.google.com/view/earth616-spotify-hq
+**Campaign HQ site:** https://airbnbclonee.vercel.app
 
 ## Roles today (Day 1)
 | Role | Name |
