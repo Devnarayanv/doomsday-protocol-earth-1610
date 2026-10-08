@@ -86,7 +86,7 @@ python docs/make_features_pdf.py
 ## Roles today (Day 1)
 | Role | Name |
 |---|---|
-| Captain | |
+| Captain | Devnarayan |
 | Stark | |
 | Banner | |
 | Romanoff | |
