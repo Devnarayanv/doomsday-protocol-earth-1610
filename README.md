@@ -87,15 +87,17 @@ python docs/make_features_pdf.py
 | Role | Name |
 |---|---|
 | Captain | Devnarayan |
-| Stark | |
-| Banner | |
-| Romanoff | |
+| Stark | Balachandru |
+| Banner | Abhishek |
+| Romanoff | Jain |
 | Strange | Amenda |
-| Watcher | |
+| Watcher | Joshua |
 
 ## Integrity pact
 We will only claim evidence we can show. We will verify every AI claim.
+
 I, Amenda, will only claim evidence I can show
+
 ## Day log
 | Day | Stone | What we built | Evidence link |
 |---|---|---|---|
