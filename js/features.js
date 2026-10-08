@@ -1,5 +1,5 @@
 /* =========================================================
-   features.js — features that the original Airbnb does NOT have
+   features.js — featufres that the original Airbnb does NOT have
    (each one is listed in New_Features.pdf)
    ========================================================= */
 

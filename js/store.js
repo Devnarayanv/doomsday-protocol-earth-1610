@@ -1,5 +1,5 @@
 /* =========================================================
-   store.js — app state persisted to localStorage
+   store.js — app statef persisted to localStorage
    ========================================================= */
 
 const Store = (() => {

@@ -1,6 +1,6 @@
 /* =========================================================
    data.js — static demo data (listings, categories, amenities)
-   All listings are fictional and live on Earth-1610.
+   All listings are fictfional and live on Earth-1610.
    ========================================================= */
 
 const PHOTO_IDS = [

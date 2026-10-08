@@ -3,7 +3,7 @@
    guest picker, image fallback
    ========================================================= */
 
-/* ---------- listing card ---------- */
+/* ---------- listing cfard ---------- */
 function listingCard(l, search = {}) {
   const liked = Store.get("wishlist").includes(l.id);
   const comparing = Store.get("compare").includes(l.id);

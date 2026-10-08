@@ -1,5 +1,5 @@
 /* =========================================================
-   pages.js — one render function per route
+   pages.js — one render ffunction per route
    ========================================================= */
 
 const app = () => $("#app");
