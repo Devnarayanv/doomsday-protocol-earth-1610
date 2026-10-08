@@ -36,6 +36,8 @@ PROJECT_INFO = [
     ("Date", date.today().strftime("%d %B %Y")),
 ]
 
+DISCLAIMER = "Student project for LC26MCA F107, LEAD College of Management. Not affiliated with Airbnb, Inc."
+
 BRAND = colors.HexColor("#FF385C")
 DARK = colors.HexColor("#222222")
 MUTED = colors.HexColor("#6A6A6A")
@@ -296,7 +298,14 @@ def build():
     st = []
 
     # ----- cover -----
-    st.append(Spacer(1, 1.2 * cm))
+    disclaimer = Table([[Paragraph(DISCLAIMER, ParagraphStyle("disc", parent=S["cellb"], fontSize=9.5, leading=13, alignment=TA_CENTER))]], colWidths=[17 * cm])
+    disclaimer.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), SOFT), ("BOX", (0, 0), (-1, -1), 0.8, BRAND),
+        ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+        ("TOPPADDING", (0, 0), (-1, -1), 7), ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+    ]))
+    st.append(disclaimer)
+    st.append(Spacer(1, 0.8 * cm))
     st.append(Paragraph("Airbnb Clone", S["title"]))
     st.append(Paragraph("Earth-1610 Edition  -  New Features Report", S["subtitle"]))
     st.append(Paragraph(

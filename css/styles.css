@@ -99,6 +99,11 @@ h3 { font-size: 15px; font-weight: 600; }
 .switch-row input:checked + .switch::after { transform: translateX(18px); }
 
 /* ---------- header ---------- */
+.disclaimer-bar {
+  background: var(--bg-soft); color: var(--muted); border-bottom: 1px solid var(--line-soft);
+  font-size: 12.5px; text-align: center; padding: 7px 16px; line-height: 1.4;
+}
+.disclaimer-bar i { color: var(--brand); margin-right: 6px; }
 .site-header {
   position: sticky; top: 0; z-index: 50; background: var(--bg);
   border-bottom: 1px solid var(--line-soft);
