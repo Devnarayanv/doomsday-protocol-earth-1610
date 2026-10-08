@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb Clone · Earth-1610 Edition</title>
+  <meta name="description" content="An educational Airbnb clone with extra features — built for a college project.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="site-header">
+    <div class="header-top container">
+      <a href="#/" class="logo" aria-label="Home">
+        <i class="fa-brands fa-airbnb" aria-hidden="true"></i>
+        <span>airbnb</span>
+      </a>
+
+      <!-- compact search pill (mobile) -->
+      <button class="search-pill" id="search-pill">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span><b id="pill-where">Start your search</b><small id="pill-sub">Anywhere · Any week · Add guests</small></span>
+      </button>
+
+      <div class="header-right">
+        <a href="#/host" class="host-link">Airbnb your home</a>
+        <button class="icon-btn" id="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        <div class="user-menu-wrap">
+          <button class="user-menu-btn" id="user-menu-btn" aria-label="Open user menu">
+            <i class="fa-solid fa-bars"></i>
+            <span id="user-avatar"><i class="fa-solid fa-circle-user fa-2x"></i></span>
+          </button>
+          <div class="dropdown" id="user-dropdown"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- full search bar -->
+    <div class="search-wrap container" id="search-wrap">
+      <form class="search-bar" id="search-bar" autocomplete="off">
+        <div class="sb-field sb-where" data-panel="where">
+          <label for="sb-where-input">Where</label>
+          <div class="sb-where-row">
+            <input id="sb-where-input" placeholder="Search destinations">
+            <button type="button" class="mic-btn" id="mic-btn" title="Voice search (new)" aria-label="Voice search"><i class="fa-solid fa-microphone"></i></button>
+          </div>
+        </div>
+        <div class="sb-sep"></div>
+        <div class="sb-field" data-panel="dates"><label>Check in</label><span id="sb-checkin" class="sb-val">Add dates</span></div>
+        <div class="sb-sep"></div>
+        <div class="sb-field" data-panel="dates"><label>Check out</label><span id="sb-checkout" class="sb-val">Add dates</span></div>
+        <div class="sb-sep"></div>
+        <div class="sb-field sb-who" data-panel="who">
+          <div><label>Who</label><span id="sb-guests" class="sb-val">Add guests</span></div>
+          <button type="submit" class="sb-submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></button>
+        </div>
+        <div class="sb-panel" id="sb-panel"></div>
+      </form>
+    </div>
+
+    <!-- category bar (home only) -->
+    <div class="cat-row container" id="cat-row">
+      <button class="cat-scroll left" aria-label="Scroll categories left"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="categories" id="categories"></div>
+      <button class="cat-scroll right" aria-label="Scroll categories right"><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="filter-btn" id="filter-btn"><i class="fa-solid fa-sliders"></i> Filters <span class="filter-count" id="filter-count"></span></button>
+      <label class="switch-row total-toggle" title="Display total before taxes">
+        <span>Display total before taxes</span>
+        <input type="checkbox" id="total-toggle"><span class="switch"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main id="app"></main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-cols">
+      <div>
+        <h4>Support</h4>
+        <a href="#/help">Help Centre</a><a href="#/help">AirCover</a><a href="#/help">Anti-discrimination</a><a href="#/help">Cancellation options</a>
+      </div>
+      <div>
+        <h4>Hosting</h4>
+        <a href="#/host">Airbnb your home</a><a href="#/help">AirCover for Hosts</a><a href="#/help">Hosting resources</a><a href="#/help">Hosting responsibly</a>
+      </div>
+      <div>
+        <h4>Clone extras <span class="new-pill">NEW</span></h4>
+        <a href="#/match">Smart Stay Match</a><a href="#/compare">Compare stays</a><a href="#/account">Travel rewards</a><a href="#/trips">Packing lists</a>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <a href="New_Features.pdf" target="_blank">New features (PDF)</a><a href="#/help">About this clone</a><a href="README.md" target="_blank">README</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Airbnb Clone · <b>Earth-1610 Edition</b> · Educational college project, not affiliated with Airbnb, Inc.</span>
+      <span><i class="fa-solid fa-globe"></i> English (IN) &nbsp; ₹ INR</span>
+    </div>
+  </footer>
+
+  <!-- mobile bottom nav -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <a href="#/" data-nav="home"><i class="fa-solid fa-magnifying-glass"></i>Explore</a>
+    <a href="#/wishlists" data-nav="wishlists"><i class="fa-regular fa-heart"></i>Wishlists</a>
+    <a href="#/match" data-nav="match"><i class="fa-solid fa-wand-magic-sparkles"></i>Match</a>
+    <a href="#/trips" data-nav="trips"><i class="fa-brands fa-airbnb"></i>Trips</a>
+    <a href="#/account" data-nav="account"><i class="fa-regular fa-circle-user"></i>Profile</a>
+  </nav>
+
+  <div class="compare-bar" id="compare-bar"></div>
+  <div id="toasts" class="toasts"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/features.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
