@@ -90,12 +90,12 @@ python docs/make_features_pdf.py
 | Stark | |
 | Banner | |
 | Romanoff | |
-| Strange | |
+| Strange | Amenda |
 | Watcher | |
 
 ## Integrity pact
 We will only claim evidence we can show. We will verify every AI claim.
-
+I, Amenda, will only claim evidence I can show
 ## Day log
 | Day | Stone | What we built | Evidence link |
 |---|---|---|---|
