@@ -79,22 +79,24 @@ python docs/make_features_pdf.py
 - Font: Inter (Google Fonts)
 "# airbnbclone" 
 
-# Earth-616 • Spotify • DOOMSDAY PROTOCOL
+# Earth-1610 • Airbnb • DOOMSDAY PROTOCOL
 
-**Campaign HQ site:** https://sites.google.com/view/earth616-spotify-hq
+**Campaign HQ site:** https://airbnbclonee.vercel.app
 
 ## Roles today (Day 1)
 | Role | Name |
 |---|---|
-| Captain | |
-| Stark | |
-| Banner | |
-| Romanoff | |
-| Strange | |
-| Watcher | |
+| Captain | Devnarayan |
+| Stark | Balachandru |
+| Banner | Abhishek |
+| Romanoff | Jain |
+| Strange | Amenda |
+| Watcher | Joshua |
 
 ## Integrity pact
 We will only claim evidence we can show. We will verify every AI claim.
+
+I, Amenda, will only claim evidence I can show
 
 ## Day log
 | Day | Stone | What we built | Evidence link |
