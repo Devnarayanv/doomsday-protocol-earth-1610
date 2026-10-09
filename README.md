@@ -79,7 +79,7 @@ python docs/make_features_pdf.py
 - Font: Inter (Google Fonts)
 "# airbnbclone" 
 
-# Earth-616 • Spotify • DOOMSDAY PROTOCOL
+# Earth-1610 • Airbnb • DOOMSDAY PROTOCOL
 
 **Campaign HQ site:** https://airbnbclonee.vercel.app
 
