@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/follow/", "destination": "/follow", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/follow", "destination": "/index.html" }
+  ]
+}

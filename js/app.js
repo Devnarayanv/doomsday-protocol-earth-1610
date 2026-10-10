@@ -392,14 +392,20 @@ function initChannelsPanel() {
     tab.setAttribute("aria-expanded", String(open));
     $$("a, button", panel).forEach(el => (el.tabIndex = open ? 0 : -1));
     if (open) $(".ch", panel).focus();
+    // the open panel has its own address: /follow (served by the rewrite in vercel.json)
+    if (location.protocol.startsWith("http")) {
+      const path = open ? "/follow" : "/";
+      if (location.pathname !== path) history.replaceState(history.state, "", path + location.search + location.hash);
+    }
   };
+  const openOnLoad = location.pathname.replace(/\/$/, "") === "/follow" || new URLSearchParams(location.search).has("follow");
   set(false);
   tab.onclick = e => { e.stopPropagation(); set(!panel.classList.contains("open")); };
   $("#channels-close").onclick = () => { set(false); tab.focus(); };
   document.addEventListener("click", e => { if (panel.classList.contains("open") && !e.target.closest("#channels-panel")) set(false); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("open")) { set(false); tab.focus(); } });
-  // shareable link: https://airbnbclonee.vercel.app/?follow opens the panel straight away
-  if (new URLSearchParams(location.search).has("follow")) set(true);
+  // shareable link: https://airbnbclonee.vercel.app/follow opens the panel straight away
+  if (openOnLoad) set(true);
 }
 
 function init() {
