@@ -383,6 +383,23 @@ function updateHeaderHeight() {
 /* =========================================================
    INIT
    ========================================================= */
+/* social channels side panel */
+function initChannelsPanel() {
+  const tab = $("#channels-tab"), panel = $("#channels-panel");
+  const set = open => {
+    panel.classList.toggle("open", open);
+    panel.setAttribute("aria-hidden", String(!open));
+    tab.setAttribute("aria-expanded", String(open));
+    $$("a, button", panel).forEach(el => (el.tabIndex = open ? 0 : -1));
+    if (open) $(".ch", panel).focus();
+  };
+  set(false);
+  tab.onclick = e => { e.stopPropagation(); set(!panel.classList.contains("open")); };
+  $("#channels-close").onclick = () => { set(false); tab.focus(); };
+  document.addEventListener("click", e => { if (panel.classList.contains("open") && !e.target.closest("#channels-panel")) set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("open")) { set(false); tab.focus(); } });
+}
+
 function init() {
   setTheme(Store.get("theme"));
   $("#theme-btn").onclick = () => setTheme(Store.get("theme") === "dark" ? "light" : "dark");
@@ -393,6 +410,7 @@ function init() {
   syncSearchUI();
   updateFilterCount();
   renderCompareBar();
+  initChannelsPanel();
 
   // collapse the big search bar into a pill while scrolling (with hysteresis to avoid jitter)
   const header = $("#site-header");
