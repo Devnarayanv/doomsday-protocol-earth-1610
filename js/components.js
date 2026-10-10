@@ -4,7 +4,8 @@
    ========================================================= */
 
 /* ---------- listing cfard ---------- */
-const CARD_SIZES = "(min-width: 950px) 25vw, (min-width: 640px) 50vw, 100vw";
+// keep in sync with the LCP preload in index.html
+const CARD_SIZES = "(min-width: 1281px) calc(25vw - 58px), (min-width: 951px) calc(33vw - 40px), (min-width: 641px) 50vw, 100vw";
 
 function listingCard(l, search = {}, eager = false) {
   const liked = Store.get("wishlist").includes(l.id);
