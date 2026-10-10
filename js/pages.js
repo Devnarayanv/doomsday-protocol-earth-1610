@@ -104,7 +104,7 @@ function renderHome() {
     box.innerHTML = `<div class="map-view" id="map"></div>`;
     loadLeaflet().then(() => { if ($("#map")) renderResultsMap(results); });
   } else {
-    box.innerHTML = `<div class="grid">${results.map((l, i) => listingCard(l, s, i === 0)).join("")}</div>`;
+    box.innerHTML = `<div class="grid">${results.map((l, i) => listingCard(l, s, i < 4)).join("")}</div>`;
     bindCards(box, s);
   }
 

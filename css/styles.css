@@ -820,3 +820,6 @@ input[type="range"].slider { width: 100%; accent-color: var(--brand); }
 /* reserve icon space while Font Awesome loads asynchronously (avoids layout shift) */
 i[class*="fa-"] { display: inline-block; min-width: 1em; line-height: 1; }
 i.fa-2x { min-width: 2em; min-height: 2em; }
+/* reserve room for the JS-rendered page so the footer isn't pushed down after load (CLS) */
+#app { min-height: 100vh; }
+.categories { min-height: 66px; }

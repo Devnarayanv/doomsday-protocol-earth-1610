@@ -4,6 +4,8 @@
    ========================================================= */
 
 /* ---------- listing cfard ---------- */
+const CARD_SIZES = "(min-width: 950px) 25vw, (min-width: 640px) 50vw, 100vw";
+
 function listingCard(l, search = {}, eager = false) {
   const liked = Store.get("wishlist").includes(l.id);
   const comparing = Store.get("compare").includes(l.id);
@@ -13,7 +15,13 @@ function listingCard(l, search = {}, eager = false) {
   return `
   <article class="card" data-id="${l.id}">
     <div class="card-media">
-      <div class="track">${l.images.map((im, i) => `<img src="${photo(im, 480)}" alt="${esc(l.title)} photo ${i + 1}" ${eager && i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`).join("")}</div>
+      <div class="track">${l.images.map((im, i) => {
+        const srcset = `${photo(im, 320)} 320w, ${photo(im, 480)} 480w, ${photo(im, 720)} 720w`;
+        const alt = `${esc(l.title)} photo ${i + 1}`;
+        // only the first photo loads up front; the rest wait until the carousel is used
+        if (i > 0) return `<img data-src="${photo(im, 480)}" data-srcset="${srcset}" sizes="${CARD_SIZES}" alt="${alt}" decoding="async">`;
+        return `<img src="${photo(im, 480)}" srcset="${srcset}" sizes="${CARD_SIZES}" alt="${alt}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
+      }).join("")}</div>
       <button class="car-btn prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
       <button class="car-btn next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
       <div class="dots">${l.images.map((_, i) => `<span class="${i === 0 ? "on" : ""}"></span>`).join("")}</div>
@@ -41,6 +49,10 @@ function bindCards(root, search = {}) {
     const dots = $$(".dots span", card);
     let idx = 0;
     const go = n => {
+      $$("img[data-src]", track).forEach(img => {
+        img.srcset = img.dataset.srcset; img.src = img.dataset.src;
+        img.removeAttribute("data-src"); img.removeAttribute("data-srcset");
+      });
       idx = (n + dots.length) % dots.length;
       track.style.transform = `translateX(-${idx * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle("on", i === idx));
