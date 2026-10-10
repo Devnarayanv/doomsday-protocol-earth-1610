@@ -816,3 +816,7 @@ input[type="range"].slider { width: 100%; accent-color: var(--brand); }
   .page h1, .book-head h1 { font-size: 26px; }
   .footer-cols { grid-template-columns: 1fr; }
 }
+
+/* reserve icon space while Font Awesome loads asynchronously (avoids layout shift) */
+i[class*="fa-"] { display: inline-block; min-width: 1em; line-height: 1; }
+i.fa-2x { min-width: 2em; min-height: 2em; }

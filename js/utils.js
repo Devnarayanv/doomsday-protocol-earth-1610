@@ -5,6 +5,25 @@
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+/* ---------- Leaflet is only needed on map views, so load it on demand ---------- */
+let leafletPromise = null;
+function loadLeaflet() {
+  if (window.L) return Promise.resolve();
+  if (!leafletPromise) {
+    const base = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/";
+    const css = document.createElement("link");
+    css.rel = "stylesheet"; css.href = base + "leaflet.min.css";
+    document.head.appendChild(css);
+    leafletPromise = new Promise(resolve => {
+      const js = document.createElement("script");
+      js.src = base + "leaflet.min.js";
+      js.onload = js.onerror = () => resolve();
+      document.head.appendChild(js);
+    });
+  }
+  return leafletPromise;
+}
+
 const inr = n => "₹" + Math.round(n).toLocaleString("en-IN");
 
 function esc(str) {

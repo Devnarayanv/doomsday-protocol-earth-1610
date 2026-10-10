@@ -102,9 +102,9 @@ function renderHome() {
     $("#reset-all").onclick = resetSearch;
   } else if (App.mapMode) {
     box.innerHTML = `<div class="map-view" id="map"></div>`;
-    renderResultsMap(results);
+    loadLeaflet().then(() => { if ($("#map")) renderResultsMap(results); });
   } else {
-    box.innerHTML = `<div class="grid">${results.map(l => listingCard(l, s)).join("")}</div>`;
+    box.innerHTML = `<div class="grid">${results.map((l, i) => listingCard(l, s, i === 0)).join("")}</div>`;
     bindCards(box, s);
   }
 
@@ -380,6 +380,11 @@ function renderRoom(id, query) {
   refresh();
 
   /* map */
+  loadLeaflet().then(() => renderRoomMap(l));
+}
+
+function renderRoomMap(l) {
+  if (!$("#room-map")) return;
   if (window.L) {
     const map = L.map("room-map", { scrollWheelZoom: false }).setView([l.lat, l.lng], 13);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap contributors" }).addTo(map);
