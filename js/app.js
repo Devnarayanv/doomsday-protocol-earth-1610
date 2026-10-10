@@ -398,6 +398,8 @@ function initChannelsPanel() {
   $("#channels-close").onclick = () => { set(false); tab.focus(); };
   document.addEventListener("click", e => { if (panel.classList.contains("open") && !e.target.closest("#channels-panel")) set(false); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("open")) { set(false); tab.focus(); } });
+  // shareable link: https://airbnbclonee.vercel.app/?follow opens the panel straight away
+  if (new URLSearchParams(location.search).has("follow")) set(true);
 }
 
 function init() {
