@@ -24,7 +24,7 @@ const PHOTO_IDS = [
 /** Builds an Unsplash URL from an index into PHOTO_IDS (or a full URL for host-uploaded photos). */
 function photo(ref, w = 900) {
   if (typeof ref === "string") return ref;
-  return `https://images.unsplash.com/photo-${PHOTO_IDS[ref]}?auto=format&fit=crop&w=${w}&q=70`;
+  return `https://images.unsplash.com/photo-${PHOTO_IDS[ref]}?auto=format&fit=crop&w=${w}&q=55`;
 }
 
 // Interior shots that get mixed into every listing's gallery

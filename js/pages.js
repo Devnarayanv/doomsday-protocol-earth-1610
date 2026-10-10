@@ -199,7 +199,7 @@ function renderRoom(id, query) {
     </div>
 
     <div class="gallery">
-      ${l.images.map((im, i) => `<img src="${photo(im, i === 0 ? 1200 : 600)}" alt="Photo ${i + 1} of ${esc(l.title)}" data-photos>`).join("")}
+      ${l.images.map((im, i) => `<img src="${photo(im, i === 0 ? 800 : 480)}" alt="Photo ${i + 1} of ${esc(l.title)}" data-photos>`).join("")}
       <button class="show-photos" data-photos><i class="fa-solid fa-grip"></i> Show all photos</button>
     </div>
 
@@ -328,7 +328,7 @@ function renderRoom(id, query) {
 
   /* gallery */
   $$("[data-photos]").forEach(el => el.onclick = () => openModal(`<div class="modal-head">Photo tour</div>
-    <div class="all-photos">${l.images.map(im => `<img src="${photo(im, 1200)}" alt="">`).join("")}</div>`, { full: true }));
+    <div class="all-photos">${l.images.map(im => `<img src="${photo(im, 1000)}" alt="">`).join("")}</div>`, { full: true }));
 
   /* actions */
   $("#save-btn").onclick = e => {

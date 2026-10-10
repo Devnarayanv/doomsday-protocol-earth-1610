@@ -13,7 +13,7 @@ function listingCard(l, search = {}, eager = false) {
   return `
   <article class="card" data-id="${l.id}">
     <div class="card-media">
-      <div class="track">${l.images.map((im, i) => `<img src="${photo(im, 640)}" alt="${esc(l.title)} photo ${i + 1}" ${eager && i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`).join("")}</div>
+      <div class="track">${l.images.map((im, i) => `<img src="${photo(im, 480)}" alt="${esc(l.title)} photo ${i + 1}" ${eager && i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`).join("")}</div>
       <button class="car-btn prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
       <button class="car-btn next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
       <div class="dots">${l.images.map((_, i) => `<span class="${i === 0 ? "on" : ""}"></span>`).join("")}</div>
