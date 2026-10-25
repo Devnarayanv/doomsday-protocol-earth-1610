@@ -214,5 +214,41 @@
   <script defer src="js/features.js"></script>
   <script defer src="js/pages.js"></script>
   <script defer src="js/app.js"></script>
+
+  <!-- ============ LANDBOT CHAT (Airbnb Clone Assistant) ============
+       Loads on first interaction so it doesn't slow the first paint. -->
+  <style>
+    /* keep the chat bubble/window above the mobile bottom nav */
+    @media (max-width: 950px) {
+      .LandbotLivechat {
+        bottom: 72px !important;
+        max-height: calc(100% - 80px) !important;
+        z-index: 2147483000 !important;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      var myLandbot;
+      function initLandbot() {
+        if (myLandbot) return;
+        myLandbot = true;
+        var s = document.createElement('script');
+        s.type = 'module';
+        s.async = true;
+        s.addEventListener('load', function () {
+          myLandbot = new Landbot.Livechat({
+            configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3539337-3EZO5CI4Z2EV3FNK/index.json',
+          });
+        });
+        s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+        document.body.appendChild(s);
+      }
+      ['mouseover', 'touchstart', 'scroll', 'keydown'].forEach(function (ev) {
+        window.addEventListener(ev, initLandbot, { once: true, passive: true });
+      });
+      setTimeout(initLandbot, 4000);
+    })();
+  </script>
 </body>
 </html>
